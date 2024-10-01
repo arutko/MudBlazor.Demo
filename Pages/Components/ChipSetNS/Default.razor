@@ -1,0 +1,25 @@
+﻿<MudChipSet @bind-SelectedValues="_selected2" SelectionMode="SelectionMode.MultiSelection" CheckMark>
+    <MudChip Value="@("Milk")" />
+    <MudChip Value="@("Eggs")" />
+    <MudChip Value="@("Soap")" />
+    <MudChip Value="@("Cornflakes")" />
+    <MudChip Value="@("Salad")" />
+    <MudChip Value="@("Apples")" />
+    <MudChip Value="@("Red wine")" />
+</MudChipSet>
+
+<div class="d-flex justify-center">
+    @if (_selected2 is { Count: > 0 })
+    {
+        <MudText>You selected @string.Join(", ", _selected2).</MudText>
+    }
+    else
+    {
+        <MudText>Nothing selected.</MudText>
+    }
+</div>
+
+@code
+{
+    private IReadOnlyCollection<string> _selected2 = ["Milk", "Cornflakes"];
+}

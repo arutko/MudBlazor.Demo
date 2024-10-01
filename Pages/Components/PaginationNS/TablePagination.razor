@@ -1,0 +1,75 @@
+﻿@using MudBlazor.Demo.BW.Pages.Components.PaginationNS
+@using MudBlazor.Demo.BW.Examples.Data.Models
+@inject HttpClient httpClient
+@using System.Net.Http.Json
+
+<MudTable @ref="@_table" Items="@_elements" RowsPerPage="4" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Nr</MudTh>
+        <MudTh>Sign</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Position</MudTh>
+        <MudTh>Molar mass</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Nr">@context.Number</MudTd>
+        <MudTd DataLabel="Sign">@context.Sign</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Position">@context.Position</MudTd>
+        <MudTd DataLabel="Molar mass">@context.Molar</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudPagination SelectedChanged="PageChanged" Count="@((_table.GetFilteredItemsCount() + _table.RowsPerPage - 1) / _table.RowsPerPage)" Class="pa-4" />
+    </PagerContent>
+</MudTable>
+
+@code {
+    private MudTable<Element> _table;
+    private IEnumerable<Element> _elements = new List<Element>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        //_elements = await httpClient.GetFromJsonAsync<List<Element>>("webapi/periodictable");
+
+        _elements = new List<Element>()
+        {
+            new Element
+            {
+                Number = 1,
+                Sign = "H",
+                Name = "Hydrogen",
+                Position = 0,
+                Molar = 1.00794,
+            },
+            new Element
+            {
+                Number = 2,
+                Sign = "He",
+                Name = "Helium",
+                Position = 17,
+                Molar = 4.002602,
+            },
+            new Element
+            {
+                Number = 3,
+                Sign = "Li",
+                Name = "Lithium",
+                Position = 0,
+                Molar = 6.941,
+            },
+            new Element
+            {
+                Number = 4,
+                Sign = "Be",
+                Name = "Beryllium",
+                Position = 1,
+                Molar = 9.012182,
+            },
+        };
+    }
+
+    private void PageChanged(int i)
+    {
+        _table.NavigateTo(i - 1);
+    }
+}

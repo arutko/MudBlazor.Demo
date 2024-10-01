@@ -1,0 +1,13 @@
+﻿@inject IDialogService DialogService
+
+<MudButton OnClick="OpenDialogAsync" Variant="Variant.Filled" Color="Color.Primary">
+    Options Dialog
+</MudButton>
+
+@code {
+
+    private Task OpenDialogAsync()
+    {
+        return DialogService.ShowAsync<DialogSetOptionsExample_Dialog>("Options Dialog");
+    }
+}

@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Components\FormsInputs\Form.razor" />
+    <Content Remove="Pages\Components\FormsInputs\FormNS\ReadOnlyDisabledForms.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.10.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.7" PrivateAssets="all" />
     <PackageReference Include="MudBlazor" Version="7.8.0" />
@@ -15,6 +21,28 @@
 
   <ItemGroup>
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Components\FormsInputs\Form.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Components\FormsInputs\Form.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Components\FormsInputs\FormNS\ReadOnlyDisabledForms.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Components\FormsInputs\Form.razor" />
+    <None Include="Pages\Components\FormsInputs\FormNS\ReadOnlyDisabledForms.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Components\FormsInputs\FormNS\ReadOnlyDisabledForms.razor" />
   </ItemGroup>
 
 </Project>

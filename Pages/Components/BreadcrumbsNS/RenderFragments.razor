@@ -1,0 +1,16 @@
+﻿<h4>Render Fragments</h4>
+
+<MudBreadcrumbs Items="_items3">
+    <SeparatorTemplate>
+        <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Size="Size.Small" />
+    </SeparatorTemplate>
+</MudBreadcrumbs>
+
+@code {
+    private List<BreadcrumbItem> _items3 = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "#"),
+        new BreadcrumbItem("Link 1", href: "#"),
+        new BreadcrumbItem("Link 2", href: null, disabled: true)
+    };
+}

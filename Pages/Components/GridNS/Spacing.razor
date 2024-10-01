@@ -1,0 +1,18 @@
+﻿<MudSlider @bind-Value="Spaces" Min="0" Max="20" Color="Color.Info" Class="mb-6">Spacing: @Spaces.ToString()</MudSlider>
+
+<MudGrid Spacing="@Spaces" Justify="Justify.Center">
+    <MudItem>
+        <MudPaper Height="140px" Width="140px" />
+    </MudItem>
+    <MudItem>
+        <MudPaper Height="140px" Width="140px" />
+    </MudItem>
+    <MudItem>
+        <MudPaper Height="140px" Width="140px" />
+    </MudItem>
+</MudGrid>
+
+
+@code {
+    public int Spaces { get; set; } = 6;
+}
