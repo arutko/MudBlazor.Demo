@@ -1,16 +1,14 @@
 ﻿@inject IDialogService DialogService
 
-
 <MudButton @onclick="OpenDialogAsync" Variant="Variant.Filled" Color="Color.Primary">
-    Open Dialog
+    Open Simple Dialog
 </MudButton>
 
 @code {
-
     private Task OpenDialogAsync()
     {
         var options = new DialogOptions { CloseOnEscapeKey = true };
 
-        return DialogService.ShowAsync<DialogFocusExample_Dialog>("Last element focused", options);
+        return DialogService.ShowAsync<Dialog>("First Level Dialog", options);
     }
 }

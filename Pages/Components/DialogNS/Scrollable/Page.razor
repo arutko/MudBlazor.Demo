@@ -9,7 +9,7 @@
 
     private async Task OpenDialogAsync()
     {
-        var dialog = await DialogService.ShowAsync<DialogScrollableExample_Dialog>("MudBlazor License");
+        var dialog = await DialogService.ShowAsync<Dialog>("MudBlazor License");
         var result = await dialog.Result;
 
         if (!result.Canceled)
